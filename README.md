@@ -65,7 +65,7 @@ GET: http://127.0.0.1:8000/api/users/users/me/
 POST: http://127.0.0.1:8000/token/login/
 ```
 ### Menu-items Management
-````
+```
 Role: Customer, Delivery Crew, Manager
 GET/POST/DELETE/PATCH/PUT: http://127.0.0.1:8000/api/menu-items
 GET/PUT/PATCH/DELETE: http://127.0.0.1:8000/api/menu_items/1
