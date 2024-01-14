@@ -1,59 +1,87 @@
+# LittleLemon API
+
+Welcome to the LittleLemon API! This project is designed to provide a comprehensive suite of functionalities for managing users, menu items, carts, and orders.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Before you begin, ensure you have the following tools installed:
+
+- Python 3
+- pip3
+- pipenv
+
+### Setting Up the Environment
+
+To set up your development environment, run the following commands:
+
+```bash
 pip3 install pipenv
-pipenv shell 
-pipenv install django
-pipenv install djangorestframework
-pipenv install djoser
+pipenv shell
+pipenv install django djangorestframework djoser
+```
 
+Running the Application
+```
+python manage.py runserver 9000 # Change port to 9000 (optional)
+```
 
+# Usage
+### Superuser
+Username: tao
 
-python manage.py runserver <9000> change port is optional
+Email: tao@gmail.com
 
+Password: 123
 
-superuser:
-user:tao
-email:tao@gmail.com
-password:123
-TOKEN:a4b5486f9f1a69c06149f0b26a4748ad46eeea33
+Token: a4b5486f9f1a69c06149f0b26a4748ad46eeea33
+### Manager
+Username: SomeUserName
 
+Email: tao@gmail.com
 
-Manager:
-user:SomeUserName
-email:tao@gmail.com
-password:someemail@email.com
-TOKEN:900c14dfb2716cdb1c86ad2d4e46feaeb12c2940
+Password: someemail@email.com
 
-Delivery Crew
-user:Josn
-email: n/a
-password:86562568@
-TOKEN:a314cbe704610ea20a4d0761c049a25f3e56fdb8
+Token: 900c14dfb2716cdb1c86ad2d4e46feaeb12c2940
 
+### Delivery Crew
+Username: Josn
 
-test url endpoint:
+Email: n/a
 
-User registration and token generation endpoints 
-Role: anyone, token, username and password pair
-http://127.0.0.1:8000/api/users POST
-http://127.0.0.1:8000/api/users/users/me/   GET
-http://127.0.0.1:8000/token/login/  POST
+Password: 86562568@
 
-Menu-items endpoints 
-Role:Customer, delivery crew,Manager
-http://127.0.0.1:8000/api/menu-items    GET/POST/DELETE/PATCH/PUT
-http://127.0.0.1:8000/api/menu_items/1  GET/PUT/PATCH/DELETE
+Token: a314cbe704610ea20a4d0761c049a25f3e56fdb8
 
-
-User group management endpoints
+# API Endpoints
+### User Registration and Token Generation
+```
+Role: Anyone
+POST: http://127.0.0.1:8000/api/users
+GET: http://127.0.0.1:8000/api/users/users/me/
+POST: http://127.0.0.1:8000/token/login/
+```
+### Menu-items Management
+````
+Role: Customer, Delivery Crew, Manager
+GET/POST/DELETE/PATCH/PUT: http://127.0.0.1:8000/api/menu-items
+GET/PUT/PATCH/DELETE: http://127.0.0.1:8000/api/menu_items/1
+```
+### User Group Management
+```
 Role: Manager
-http://127.0.0.1:8000/api/groups/manager/users  GET/POST
-http://127.0.0.1:8000/api/groups/delivery-crew/users/3/ DELETE
-
-
-Cart management endpoints 
+GET/POST: http://127.0.0.1:8000/api/groups/manager/users
+DELETE: http://127.0.0.1:8000/api/groups/delivery-crew/users/3/
+```
+### Cart Management
+```
 Role: Customer
-http://127.0.0.1:8000/api/cart/menu-items
-
-Order management endpoints
-Role:Customer, delivery crew,Manager
-http://127.0.0.1:8000/api/orders    GET/POST
-http://127.0.0.1:8000/api/orders/1/ GET/PUT/PATCH
+Endpoint: http://127.0.0.1:8000/api/cart/menu-items
+Order Management
+Role: Customer, Delivery Crew, Manager
+GET/POST: http://127.0.0.1:8000/api/orders
+GET/PUT/PATCH: http://127.0.0.1:8000/api/orders/1/
+```
