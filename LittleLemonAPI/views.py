@@ -2,18 +2,19 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import serializers
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import Group, User
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
-from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
 from decimal import Decimal
 from .serializers import MenuItemSerializer,CartSerializer,UserSerializer,OrderSerializer  
 from .models import Cart, MenuItem, Order,OrderItem
-from rest_framework.throttling import AnonRateThrottle 
-from rest_framework.throttling import UserRateThrottle 
+from rest_framework.throttling import AnonRateThrottle,UserRateThrottle 
 from rest_framework.decorators import throttle_classes
-from .throttles import  TenCallsPerMinute # import file
+from .throttles import  TenCallsPerMinute 
+from django.core.paginator import Paginator,EmptyPage#Pagination
+
 
 # Menu-items endpoints
 @api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
